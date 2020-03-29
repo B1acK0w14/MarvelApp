@@ -17,4 +17,15 @@ class CustomCellView: UICollectionViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var dislikeButton: UIButton!
     @IBOutlet weak var numLikesMovieLabel: UILabel!
+    var numLikeCounts = 0
+    
+    @IBAction func increaseNumLikesLabel(_ sender: Any) {
+        numLikeCounts+=1
+        numLikesMovieLabel.text = Double.formatPoints(Double(numLikeCounts))()
+    }
+    
+    @IBAction func decreaseNumLikesLabel(_ sender: Any) {
+        numLikeCounts-=1
+        numLikesMovieLabel.text = Double.formatPoints(Double(numLikeCounts))()
+    }
 }

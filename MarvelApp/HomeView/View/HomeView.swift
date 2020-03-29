@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class HomeView: UIViewController {
 
@@ -59,13 +60,12 @@ extension HomeView: UICollectionViewDataSource {
         let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCellView
         cell.titleMovieLabel.text = self.comics[indexPath.row].title
         if let datePublish = self.comics[indexPath.row].dates?[0].date {
-            let dateFormatter = ISO8601DateFormatter()
-            let date = dateFormatter.date(from: datePublish)!
-            let dateFormatterString = DateFormatter()
-            dateFormatterString.dateFormat = "dd MMM, yyyy"
-            cell.datePublishMovieLabel.text = dateFormatterString.string(from: date)
+            cell.datePublishMovieLabel.text = presenter?.transformDateToShow(with: datePublish)
         } else {
             cell.datePublishMovieLabel.text = "Don't have!"
+        }
+        if let imageComic = self.comics[indexPath.row].thumbnail {
+            cell.titleMovieImage.kf.setImage(with: URL(string: (imageComic.path! + "." + imageComic.thumbnailExtension!)))
         }
         return cell
     }

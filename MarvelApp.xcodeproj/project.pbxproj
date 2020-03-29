@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		E57B485C242FC3B900A9B947 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E57B485B242FC3B900A9B947 /* HomeView.storyboard */; };
 		E57B485E242FDCCE00A9B947 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57B485D242FDCCE00A9B947 /* CustomCell.xib */; };
 		E57B4860242FDF9300A9B947 /* CustomCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57B485F242FDF9300A9B947 /* CustomCellView.swift */; };
+		E5D63DC824314C7B00499272 /* Double.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D63DC724314C7B00499272 /* Double.extension.swift */; };
 		E5E06485242D944600D3BF7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E06484242D944600D3BF7C /* AppDelegate.swift */; };
 		E5E06487242D944600D3BF7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E06486242D944600D3BF7C /* SceneDelegate.swift */; };
 		E5E0648E242D944900D3BF7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5E0648D242D944900D3BF7C /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		E57B485B242FC3B900A9B947 /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
 		E57B485D242FDCCE00A9B947 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		E57B485F242FDF9300A9B947 /* CustomCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellView.swift; sourceTree = "<group>"; };
+		E5D63DC724314C7B00499272 /* Double.extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.extension.swift; sourceTree = "<group>"; };
 		E5E06481242D944600D3BF7C /* MarvelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E06484242D944600D3BF7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5E06486242D944600D3BF7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		E57B4843242FBF9600A9B947 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E5D63DC624314BF400499272 /* Extensions */,
 				E57B4845242FBFCF00A9B947 /* Models */,
 				E5E06484242D944600D3BF7C /* AppDelegate.swift */,
 				E5E06486242D944600D3BF7C /* SceneDelegate.swift */,
@@ -205,6 +208,14 @@
 			path = WireFrame;
 			sourceTree = "<group>";
 		};
+		E5D63DC624314BF400499272 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E5D63DC724314C7B00499272 /* Double.extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E5E06478242D944500D3BF7C = {
 			isa = PBXGroup;
 			children = (
@@ -230,9 +241,9 @@
 		E5E06483242D944600D3BF7C /* MarvelApp */ = {
 			isa = PBXGroup;
 			children = (
-				E57B4846242FC01F00A9B947 /* HomeView */,
 				E57B4844242FBFA000A9B947 /* Resources */,
 				E57B4843242FBF9600A9B947 /* Core */,
+				E57B4846242FC01F00A9B947 /* HomeView */,
 				E5E0648F242D944900D3BF7C /* LaunchScreen.storyboard */,
 				E5E06492242D944900D3BF7C /* Info.plist */,
 			);
@@ -281,6 +292,7 @@
 				E5E0647D242D944500D3BF7C /* Sources */,
 				E5E0647E242D944500D3BF7C /* Frameworks */,
 				E5E0647F242D944500D3BF7C /* Resources */,
+				9A782A15C0BC880552AD44BA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,6 +330,7 @@
 				E5E0649E242D944900D3BF7C /* Sources */,
 				E5E0649F242D944900D3BF7C /* Frameworks */,
 				E5E064A0242D944900D3BF7C /* Resources */,
+				77CEAF61097B941011AE8C52 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -423,6 +436,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		77CEAF61097B941011AE8C52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarvelApp-MarvelAppUITests/Pods-MarvelApp-MarvelAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarvelApp-MarvelAppUITests/Pods-MarvelApp-MarvelAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarvelApp-MarvelAppUITests/Pods-MarvelApp-MarvelAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		77F93CA06A4F9BBE0BB3FA53 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -443,6 +473,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A782A15C0BC880552AD44BA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarvelApp/Pods-MarvelApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarvelApp/Pods-MarvelApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarvelApp/Pods-MarvelApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A4C8DC49A18AC8921B85BAB9 /* [CP] Check Pods Manifest.lock */ = {
@@ -479,6 +526,7 @@
 				E5E06487242D944600D3BF7C /* SceneDelegate.swift in Sources */,
 				E57B4860242FDF9300A9B947 /* CustomCellView.swift in Sources */,
 				E5EC72AD2430414C00C82E6F /* EndPoint.swift in Sources */,
+				E5D63DC824314C7B00499272 /* Double.extension.swift in Sources */,
 				E5EC72AF2430509300C82E6F /* Comics.swift in Sources */,
 				E57B4850242FC33D00A9B947 /* HomeProtocols.swift in Sources */,
 				E57B4852242FC33D00A9B947 /* HomeView.swift in Sources */,

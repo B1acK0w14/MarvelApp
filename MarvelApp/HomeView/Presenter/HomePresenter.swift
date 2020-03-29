@@ -17,18 +17,24 @@ class HomePresenter  {
     
 }
 
-extension HomePresenter: HomePresenterProtocol {
+extension HomePresenter: HomePresenterProtocol {    
     // TODO: implement presenter methods
     func viewDidLoad() {
-//        view?.loadActivity()
         interactor?.interactorGetComics()
+    }
+    
+    func transformDateToShow(with date: String) -> String {
+        let dateFormatter = ISO8601DateFormatter()
+        let dateToParse = dateFormatter.date(from: date)!
+        let dateFormatterString = DateFormatter()
+        dateFormatterString.dateFormat = "dd MMM, yyyy"
+        return dateFormatterString.string(from: dateToParse)
     }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
     // TODO: implement interactor output methods
     func interactorPushDataPresenter(with receivedComics: Comics) {
-//        view?.stopActivity()
         view?.presenterPushDataView(with: receivedComics)
     }
 }

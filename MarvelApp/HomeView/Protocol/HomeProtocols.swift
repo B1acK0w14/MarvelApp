@@ -30,6 +30,7 @@ protocol HomePresenterProtocol: class {
     var wireFrame: HomeWireFrameProtocol? { get set }
     
     func viewDidLoad()
+    func transformDateToShow(with date: String) -> String
 }
 
 protocol HomeInteractorOutputProtocol: class {
