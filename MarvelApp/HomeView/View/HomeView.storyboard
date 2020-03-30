@@ -46,13 +46,13 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Lbo-oH-ByP">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="362"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZsS-L4-zar">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="362"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="200" height="250"/>
+                                        <size key="customSize" width="200" height="362"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

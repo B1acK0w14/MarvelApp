@@ -23,12 +23,11 @@ class HomeView: UIViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.init(rgb: 0xC2DFFC)
         homeCollectionView.dataSource = self
         homeCollectionView.delegate = self
         homeCollectionView.register(UINib(nibName: "CustomCell", bundle: nil), forCellWithReuseIdentifier: "CustomCell")
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        navigationItem.searchController = searchController
+        homeCollectionView.backgroundColor = UIColor.init(rgb: 0x0570B3)
         definesPresentationContext = true
         presenter?.viewDidLoad()
     }
@@ -46,9 +45,6 @@ extension HomeView: HomeViewProtocol {
 }
 
 extension HomeView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //TODO: - Redirect to other view when user tap on cell
-    }
 }
 
 extension HomeView: UICollectionViewDataSource {
@@ -58,6 +54,16 @@ extension HomeView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCellView
+        cell.backgroundColor = UIColor(rgb: 0xC2DFFC)
+        cell.titleMovieLabel.layer.borderColor = UIColor.black.cgColor
+        cell.titleMovieLabel.layer.borderWidth = 1.0
+        cell.titleMovieLabel.layer.cornerRadius = 6
+        cell.dateView.layer.borderColor = UIColor.black.cgColor
+        cell.dateView.layer.borderWidth = 1.0
+        cell.dateView.layer.cornerRadius = 6
+        cell.numLikesView.layer.borderColor = UIColor.black.cgColor
+        cell.numLikesView.layer.borderWidth = 1.0
+        cell.numLikesView.layer.cornerRadius = 6
         cell.titleMovieLabel.text = self.comics[indexPath.row].title
         if let datePublish = self.comics[indexPath.row].dates?[0].date {
             cell.datePublishMovieLabel.text = presenter?.transformDateToShow(with: datePublish)
@@ -74,17 +80,10 @@ extension HomeView: UICollectionViewDataSource {
 extension HomeView: UICollectionViewDelegateFlowLayout {
     //ANNOTATION: - Change size of collectionViewCell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 250)
+        return CGSize(width: 200, height: 362)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
-    }
-}
-
-//MARK: - SearchController extension
-extension HomeView: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        //TODO: - Make a search into the collectionView
     }
 }
