@@ -16,7 +16,7 @@ For success compile of the project, you should follow the next steps:
 
 Download the repository locally:
 ```
-git clone https://github.com/B1acK0w14/spriteKit-for-dummies.git
+git clone https://github.com/B1acK0w14/MarvelApp
 ```
 Initialize Cocoa-Pods in case that you don't have it previously or be the first time to download the repository:
 ```
